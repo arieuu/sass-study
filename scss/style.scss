@@ -1,0 +1,90 @@
+// Importing partials
+
+@import "config";
+@import "utilities";
+@import "buttons";
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: $light-color;
+    font-family: $font-stack;
+    line-height: 1.6;
+}
+
+
+img {
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+
+.showcase {
+
+    // Including a mixin
+    @include set-background($primary-color);
+    
+    height: 600px;
+
+    // We nest this since there's a nav inside our container
+
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        ul {
+            display: flex;
+            list-style: none;
+        }
+
+        a:hover {
+            color: $secondary-color;
+        }
+        
+    }
+
+    // We could also just nest this inside the ul block but it looks neater this way
+
+    li {
+        margin: 15px;        
+    }
+
+    a {
+        color: set-text-color($primary-color);
+    }
+
+    // We can use that simbole to represent the parente class (showcase-content)
+
+    &-content {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 30px;
+
+        img {
+            width: 50%;
+        }
+
+        h1 {
+            font-size: 50px;
+            line-height: 1.2;
+        }
+
+    }
+}
+
+
+// importing media query under everything
+
+@import "mobile"
